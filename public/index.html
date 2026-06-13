@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ember — realtime chat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="login" id="login">
+  <form class="login-card" id="login-form">
+    <h1>ember<span>.</span></h1>
+    <p>Pick a name, grab a room, start talking.</p>
+    <input id="login-name" type="text" maxlength="24" placeholder="Your name" autocomplete="off" required>
+    <div class="room-pick" id="room-pick"></div>
+    <button type="submit">Enter chat</button>
+    <p class="login-error" id="login-error"></p>
+  </form>
+</div>
+
+<div class="app hidden" id="app">
+  <aside class="sidebar">
+    <h2>ember<span>.</span></h2>
+    <nav class="rooms" id="rooms"></nav>
+    <div class="presence">
+      <h3>Online — <span id="online-count">0</span></h3>
+      <ul id="online-list"></ul>
+    </div>
+  </aside>
+
+  <main class="chat">
+    <header class="chat-head">
+      <h2 id="room-title">#lounge</h2>
+      <span class="typing" id="typing"></span>
+    </header>
+    <div class="messages" id="messages"></div>
+    <form class="composer" id="composer">
+      <input id="composer-input" type="text" maxlength="500" placeholder="Write a message…" autocomplete="off">
+      <button type="submit" aria-label="Send">➤</button>
+    </form>
+  </main>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="chat.js"></script>
+</body>
+</html>
